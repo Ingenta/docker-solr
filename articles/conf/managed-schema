@@ -173,6 +173,12 @@
     <field name="fulltext" type="text_ik_ng" indexed="true" stored="true" required="false" multiValued="true"/>
     <copyField source="*.body.html" dest="fulltext"/>
 
+    <dynamicField name="*.pacsCode" type="string" indexed="false" stored="false" required="false" multiValued="false"/>
+    <field name="pacsCodes" type="string" indexed="true" stored="true" required="false" multiValued="true"/>
+    <copyField source="*.pacsCode" dest="pacsCodes"/>
+
+    <field name="contentType" type="string" indexed="true" stored="true" required="false"/>
+    
     <field name="_text_" type="text_ik_ng" indexed="true" stored="true" multiValued="true"/>
     <copyField source="title.*" dest="_text_"/>
     <copyField source="doi" dest="_text_"/>
