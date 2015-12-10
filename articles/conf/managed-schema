@@ -47,6 +47,7 @@
   <field name="startPage" type="string" indexed="true" stored="true" required="false"/>
   <field name="elocationId" type="string" indexed="true" stored="true" required="false"/>
   <field name="publishDate" type="date" indexed="true" stored="true" required="false"/>
+  <field name="accessKey" type="string" indexed="true" stored="true" required="false"/>
   <field name="abstract" type="text_ik_ng" indexed="true" stored="true" required="false" multiValued="false"/>
   <dynamicField name="*.body.html" type="string" indexed="false" stored="false" required="false" multiValued="false"/>
   <field name="fulltext" type="text_ik_ng" indexed="true" stored="true" required="false" multiValued="true"/>
