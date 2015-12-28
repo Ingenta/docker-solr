@@ -41,9 +41,9 @@
   <field name="journal.EISSN" type="text_general_ng" indexed="true" stored="true" required="false"/>
   <field name="journal.CN" type="text_general_ng" indexed="true" stored="true" required="false"/>
   <field name="month" type="string" indexed="true" stored="true" required="false"/>
-  <field name="year" type="string" indexed="true" stored="true" required="true"/>
-  <field name="volume" type="string" indexed="true" stored="true" required="true"/>
-  <field name="issue" type="string" indexed="true" stored="true" required="true"/>
+  <field name="year" type="string" indexed="true" stored="true" required="false"/>
+  <field name="volume" type="string" indexed="true" stored="true" required="false"/>
+  <field name="issue" type="string" indexed="true" stored="true" required="false"/>
   <field name="startPage" type="string" indexed="true" stored="true" required="false"/>
   <field name="elocationId" type="string" indexed="true" stored="true" required="false"/>
   <field name="publishDate" type="date" indexed="true" stored="true" required="false"/>
