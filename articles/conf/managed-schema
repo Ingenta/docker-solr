@@ -29,6 +29,8 @@
   <field name="facet_all_authors_cn" type="string" indexed="true" stored="true" required="false" multiValued="true"/>
   <copyField source="*.fullname.cn" dest="all_authors_cn"/>
   <copyField source="*.fullname.cn" dest="facet_all_authors_cn"/>
+  <field name="orderAuthors.cn" type="string" indexed="false" stored="true" required="false"/>
+  <field name="orderAuthors.en" type="string" indexed="false" stored="true" required="false"/>
   <dynamicField name="*.affText.en" type="string" indexed="false" stored="false" required="false" multiValued="false"/>
   <field name="all_affiliations_en" type="text_general_ng" indexed="true" stored="true" required="false" multiValued="true" />
   <copyField source="*.affText.en" dest="all_affiliations_en"/>
