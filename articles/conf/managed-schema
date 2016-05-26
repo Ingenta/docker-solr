@@ -50,7 +50,8 @@
   <field name="elocationId" type="string" indexed="true" stored="true" required="false"/>
   <field name="published" type="date" indexed="true" stored="true" required="false"/>
   <field name="accessKey" type="string" indexed="true" stored="true" required="false"/>
-  <field name="abstract" type="text_ik_ng" indexed="true" stored="true" required="false" multiValued="false"/>
+  <field name="abstract.cn" type="text_ik_ng" indexed="true" stored="true" required="false" multiValued="false"/>
+  <field name="abstract.en" type="text_general_ng" indexed="true" stored="true" required="false" multiValued="false"/>
   <dynamicField name="*.body.html" type="string" indexed="false" stored="false" required="false" multiValued="false"/>
   <field name="fulltext" type="text_ik_ng" indexed="true" stored="true" required="false" multiValued="true"/>
   <copyField source="*.body.html" dest="fulltext"/>
@@ -64,7 +65,7 @@
   <copyField source="keywords.*" dest="_text_"/>
   <copyField source="*.fullname.en" dest="_text_"/>
   <copyField source="*.fullname.cn" dest="_text_"/>
-  <copyField source="abstract" dest="_text_"/>
+  <copyField source="abstract.*" dest="_text_"/>
   <copyField source="fulltext" dest="_text_"/>
   <field name="_ts" type="long" indexed="true" stored="true" />
   <field name="ns" type="string" indexed="true" stored="true"/>
