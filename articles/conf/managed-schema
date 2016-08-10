@@ -21,12 +21,12 @@
   <copyField source="topic.*" dest="all_topics"/>
   <dynamicField name="*.fullname.en" type="string" indexed="false" stored="false" multiValued="false"/>
   <field name="all_authors_en" type="text_general_ng" indexed="true" stored="true" required="false" multiValued="true"/>
-  <field name="facet_all_authors_en" type="string" indexed="true" stored="true" required="false" multiValued="true"/>
+  <field name="facet_all_authors_en" type="text_lowercase" indexed="true" stored="true" required="false" multiValued="true"/>
   <copyField source="*.fullname.en" dest="all_authors_en"/>
   <copyField source="*.fullname.en" dest="facet_all_authors_en"/>
   <dynamicField name="*.fullname.cn" type="string" indexed="false" stored="false" multiValued="false"/>
   <field name="all_authors_cn" type="text_ik_ng" indexed="true" stored="true" required="false" multiValued="true"/>
-  <field name="facet_all_authors_cn" type="string" indexed="true" stored="true" required="false" multiValued="true"/>
+  <field name="facet_all_authors_cn" type="text_lowercase" indexed="true" stored="true" required="false" multiValued="true"/>
   <copyField source="*.fullname.cn" dest="all_authors_cn"/>
   <copyField source="*.fullname.cn" dest="facet_all_authors_cn"/>
   <field name="orderAuthors.cn" type="string" indexed="false" stored="true" required="false"/>
@@ -58,7 +58,7 @@
   <dynamicField name="*.pacsCode" type="string" indexed="false" stored="false" required="false" multiValued="false"/>
   <field name="pacsCodes" type="string" indexed="true" stored="true" required="false" multiValued="true"/>
   <copyField source="*.pacsCode" dest="pacsCodes"/>
-  <field name="contentType" type="string" indexed="true" stored="true" required="false"/>
+  <field name="contentType" type="text_lowercase" indexed="true" stored="true" required="false"/>
   <field name="_text_" type="text_ik_ng" indexed="true" stored="true" multiValued="true"/>
   <copyField source="title.*" dest="_text_"/>
   <copyField source="doi" dest="_text_"/>
@@ -701,7 +701,6 @@
   <analyzer type="index">
     <tokenizer class="solr.StandardTokenizerFactory"/>
     <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
-    <!-- in this example, we will only use synonyms at query time        <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>        -->
     <filter class="solr.LowerCaseFilterFactory"/>
     <filter class="solr.NGramFilterFactory" minGramSize="1" maxGramSize="20"/>
   </analyzer>
@@ -710,6 +709,13 @@
     <tokenizer class="solr.StandardTokenizerFactory"/>
     <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
     <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+    <filter class="solr.LowerCaseFilterFactory"/>
+  </analyzer>
+</fieldType>
+<fieldType name="text_lowercase" class="solr.TextField" positionIncrementGap="100">
+  <analyzer>
+    <tokenizer class="solr.KeywordTokenizerFactory"/>
+    <charFilter class="solr.HTMLStripCharFilterFactory"/>
     <filter class="solr.LowerCaseFilterFactory"/>
   </analyzer>
 </fieldType>
